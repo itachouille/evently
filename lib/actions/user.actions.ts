@@ -17,7 +17,7 @@ export async function createUser(user: CreateUserParams) {
   } catch (error) {
     handleError(error);
   }
-}
+} 
 
 export async function getUserById(userId: string) {
   try {
