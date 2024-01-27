@@ -26,7 +26,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useRouter } from "next/navigation";
-import { CreateEvent } from "@/lib/actions/event.actions";
+import { createEvent } from "@/lib/actions/event.actions";
 
 type EventFormProps = {
   userId: string;
@@ -57,7 +57,7 @@ const EventForm = ({ userId, type }: EventFormProps) => {
 
     if (type === "Create") {
       try {
-        const newEvent = await CreateEvent({
+        const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
           userId,
           path: "/profile",
