@@ -1,30 +1,29 @@
-import { IEvent } from "@/lib/database/models/envent.model";
-import Card from './Card';
+import { IEvent } from '@/lib/database/models/event.model'
+import React from 'react'
+import Card from './Card'
 import Pagination from './Pagination'
 
 type CollectionProps = {
-  data: IEvent[];
-  emptyTitle: string;
-  emptyStateSubtext: string;
-  collectionType?: "Events_Organized" | "My_Tickets" | "All_Events";
-  limit: number;
-  page: number | string;
-  totalPages?: number;
-  urlParamName?: string;
-};
+  data: IEvent[],
+  emptyTitle: string,
+  emptyStateSubtext: string,
+  limit: number,
+  page: number | string,
+  totalPages?: number,
+  urlParamName?: string,
+  collectionType?: 'Events_Organized' | 'My_Tickets' | 'All_Events'
+}
 
 const Collection = ({
   data,
   emptyTitle,
   emptyStateSubtext,
-  collectionType,
-  limit,
   page,
-  totalPages,
+  totalPages = 0,
+  collectionType,
   urlParamName,
 }: CollectionProps) => {
   return (
-  
     <>
       {data.length > 0 ? (
         <div className="flex flex-col items-center gap-10">
@@ -41,9 +40,9 @@ const Collection = ({
             })}
           </ul>
 
-         {/*  {totalPages > 1 && (
+          {totalPages > 1 && (
             <Pagination urlParamName={urlParamName} page={page} totalPages={totalPages} />
-          )} */}
+          )}
         </div>
       ): (
         <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center">
@@ -52,8 +51,7 @@ const Collection = ({
         </div>
       )} 
     </>
-  
-    )
-};
+  )
+}
 
-export default Collection;
+export default Collection
